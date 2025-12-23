@@ -229,19 +229,14 @@
             }
         }
 
-        function set_programming_language_single($id_hacker, $language_name) {
+        function set_programming_language_single($id_hacker, $id_language) {
             try {
-                $sel = $this->ConnectioObject->prepare("SELECT id_lenguage FROM programming_lenguage_specialized WHERE lenguage_name = :name LIMIT 1");
-                $sel->bindParam(':name', $language_name);
+                $sel = $this->ConnectioObject->prepare("SELECT id_lenguage FROM programming_lenguage_specialized WHERE id_lenguage = :id_language LIMIT 1");
+                $sel->bindParam(':id_language', $id_language, PDO::PARAM_INT);
                 $sel->execute();
                 $row = $sel->fetch(PDO::FETCH_ASSOC);
                 if ($row && isset($row['id_lenguage'])) {
                     $lang_id = $row['id_lenguage'];
-                } else {
-                    $ins = $this->ConnectioObject->prepare("INSERT INTO programming_lenguage_specialized (lenguage_name) VALUES (:name)");
-                    $ins->bindParam(':name', $language_name);
-                    $ins->execute();
-                    $lang_id = $this->ConnectioObject->lastInsertId();
                 }
 
                 $insMap = $this->ConnectioObject->prepare("INSERT INTO programming_users_specialized (id_hacker, id_lenguage) VALUES (:id, :lang)");
