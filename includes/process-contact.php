@@ -138,13 +138,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'securitiw@gmail.com'; // Original email
-        $mail->Password   = 'sfaroyznnaywqykl'; // Original password
+        $mail->Username   = ''; // Original email
+        $mail->Password   = ''; // Original password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
         
         // Email configuration
-        $mail->setFrom('securitiw@gmail.com', 'FORM FROM B1T5 CH41N5');
+        $mail->setFrom('', 'FORM FROM B1T5 CH41N5');
         $mail->addAddress($email, 'Recipient'); // Email to receive messages
         $mail->addReplyTo($email, $name);
         
