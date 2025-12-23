@@ -1,0 +1,365 @@
+/* ==============================================
+   HACKER NEON FOOTER STYLES - COMPLETE GUIDE
+   ==============================================
+   
+   This CSS creates a cyberpunk/hacker-themed footer with:
+   - Neon glow effects
+   - Matrix-style background
+   - Terminal-inspired typography
+   - Glitch animations
+   - Responsive design using Bootstrap grid
+   
+   Author: B1t5 Ch41n5
+   Purpose: Educational hacker-themed web design
+   ============================================== */
+
+/* Import Google Fonts for hacker aesthetic */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Fira+Code:wght@300;400;500&display=swap');
+
+/* Main footer container with dark gradient background */
+.hacker-footer {
+    /* Dark gradient background simulating terminal/matrix environment */
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+    color: #00ff41; /* Classic hacker green text color */
+    font-family: 'Fira Code', monospace; /* Monospace font for terminal look */
+    position: relative;
+    overflow: hidden; /* Hide overflow for background effects */
+    border-top: 2px solid #00ff41; /* Neon green top border */
+    box-shadow: 0 -5px 20px rgba(0, 255, 65, 0.3); /* Glowing shadow effect */
+}
+
+/* Pseudo-element for ambient lighting effects */
+.hacker-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Multiple radial gradients create ambient colored lighting */
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(0, 255, 65, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(0, 255, 255, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 0, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none; /* Don't interfere with user interactions */
+}
+
+/* Neon text effect class - creates glowing text */
+.neon-text {
+    font-family: 'Orbitron', monospace; /* Futuristic font */
+    font-weight: 700;
+    color: #00ff41; /* Bright green */
+    /* Multiple text-shadow layers create neon glow effect */
+    text-shadow: 
+        0 0 5px #00ff41,   /* Inner glow */
+        0 0 10px #00ff41,  /* Medium glow */
+        0 0 15px #00ff41,  /* Outer glow */
+        0 0 20px #00ff41;  /* Far glow */
+    animation: neonFlicker 2s infinite alternate; /* Flickering animation */
+}
+
+/* Keyframe animation for neon flickering effect */
+@keyframes neonFlicker {
+    0%, 100% {
+        /* Full intensity glow */
+        text-shadow: 
+            0 0 5px #00ff41,
+            0 0 10px #00ff41,
+            0 0 15px #00ff41,
+            0 0 20px #00ff41;
+    }
+    50% {
+        /* Dimmed glow for flicker effect */
+        text-shadow: 
+            0 0 2px #00ff41,
+            0 0 5px #00ff41,
+            0 0 8px #00ff41,
+            0 0 12px #00ff41;
+    }
+}
+
+/* Main brand/logo styling */
+.hacker-brand {
+    font-family: 'Orbitron', monospace; /* Sci-fi font */
+    font-size: 2.5rem;
+    font-weight: 900; /* Extra bold */
+    color: #00ffff; /* Cyan color */
+    /* Cyan neon glow effect */
+    text-shadow: 
+        0 0 10px #00ffff,
+        0 0 20px #00ffff,
+        0 0 30px #00ffff;
+    margin-bottom: 1rem;
+    letter-spacing: 3px; /* Spaced out letters for tech look */
+}
+
+/* Terminal-style text with command prompt indicator */
+.terminal-text {
+    font-family: 'Fira Code', monospace; /* Code font */
+    color: #00ff41; /* Green terminal text */
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Add command prompt symbol before terminal text */
+.terminal-text::before {
+    content: '> '; /* Command prompt symbol */
+    color: #ff0080; /* Pink/magenta color */
+    font-weight: bold;
+}
+
+/* Navigation links styling */
+.hacker-links {
+    list-style: none; /* Remove default bullets */
+    padding: 0;
+}
+
+.hacker-links li {
+    margin-bottom: 0.8rem;
+    position: relative; /* For absolute positioning of pseudo-elements */
+}
+
+.hacker-links a {
+    color: #00ff41; /* Green links */
+    text-decoration: none; /* Remove underline */
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease; /* Smooth hover transitions */
+    position: relative;
+    padding-left: 20px; /* Space for arrow icon */
+}
+
+/* Arrow icon before each link */
+.hacker-links a::before {
+    content: '▶ '; /* Play/arrow symbol */
+    position: absolute;
+    left: 0;
+    color: #ff0080; /* Pink arrow */
+    transition: all 0.3s ease;
+}
+
+/* Hover effects for links */
+.hacker-links a:hover {
+    color: #00ffff; /* Change to cyan on hover */
+    text-shadow: 0 0 10px #00ffff; /* Add glow on hover */
+    transform: translateX(5px); /* Slide right slightly */
+}
+
+.hacker-links a:hover::before {
+    color: #00ffff; /* Arrow changes color too */
+    text-shadow: 0 0 5px #00ffff; /* Arrow glows */
+}
+
+/* Social media icons container */
+.social-hacker {
+    display: flex;
+    gap: 1rem; /* Space between icons */
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+/* Individual social media icon styling */
+.social-hacker-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, #0a0a0a, #1a1a2e); /* Dark gradient */
+    border: 2px solid #00ff41; /* Green border */
+    border-radius: 8px; /* Rounded corners */
+    color: #00ff41;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; /* For sweep effect */
+}
+
+/* Sweep animation effect for social icons */
+.social-hacker-icon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%; /* Start off-screen left */
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 65, 0.2), transparent);
+    transition: left 0.5s; /* Animate sweep */
+}
+
+/* Social icon hover effects */
+.social-hacker-icon:hover {
+    color: #00ffff; /* Change to cyan */
+    border-color: #00ffff; /* Border changes color */
+    box-shadow: 
+        0 0 20px rgba(0, 255, 255, 0.5), /* Outer glow */
+        inset 0 0 20px rgba(0, 255, 255, 0.1); /* Inner glow */
+    transform: translateY(-3px); /* Lift up effect */
+}
+
+.social-hacker-icon:hover::before {
+    left: 100%; /* Sweep across on hover */
+}
+
+/* Terminal-style input field */
+.terminal-input {
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    border: 2px solid #00ff41; /* Green border */
+    border-radius: 5px;
+    padding: 0.8rem;
+    color: #00ff41; /* Green text */
+    font-family: 'Fira Code', monospace; /* Monospace font */
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Input field focus effects */
+.terminal-input:focus {
+    outline: none; /* Remove default outline */
+    border-color: #00ffff; /* Cyan border when focused */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5); /* Glowing shadow */
+    color: #00ffff; /* Text turns cyan */
+}
+
+/* Placeholder text styling */
+.terminal-input::placeholder {
+    color: #666; /* Dark gray placeholder */
+    font-family: 'Fira Code', monospace;
+}
+
+/* Hacker-style button */
+.hack-btn {
+    background: linear-gradient(45deg, #ff0080, #00ff41); /* Pink to green gradient */
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1.5rem;
+    color: #000; /* Black text for contrast */
+    font-family: 'Orbitron', monospace;
+    font-weight: 700;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* ALL CAPS */
+    letter-spacing: 1px; /* Spaced letters */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button shine effect */
+.hack-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+/* Button hover effects */
+.hack-btn:hover {
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4); /* Pink glow shadow */
+}
+
+.hack-btn:hover::before {
+    left: 100%; /* Shine sweep effect */
+}
+
+/* Footer bottom section */
+.footer-bottom-hacker {
+    border-top: 1px solid #333; /* Dark separator line */
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.3); /* Semi-transparent overlay */
+}
+
+/* Copyright text styling */
+.copyright-hacker {
+    font-family: 'Fira Code', monospace;
+    color: #666; /* Muted gray */
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+/* Matrix-style background effect */
+.matrix-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Don't block interactions */
+    opacity: 0.1; /* Very subtle */
+    font-family: 'Fira Code', monospace;
+    font-size: 0.8rem;
+    color: #00ff41;
+    overflow: hidden;
+}
+
+/* Glitch effect for text */
+.glitch-effect {
+    position: relative;
+    display: inline-block;
+}
+
+/* Create duplicate text layers for glitch effect */
+.glitch-effect::before,
+.glitch-effect::after {
+    content: attr(data-text); /* Copy text from data attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-effect::before {
+    animation: glitch-1 0.5s infinite; /* First glitch layer */
+    color: #ff0080; /* Pink layer */
+    z-index: -1;
+}
+
+.glitch-effect::after {
+    animation: glitch-2 0.5s infinite; /* Second glitch layer */
+    color: #00ffff; /* Cyan layer */
+    z-index: -2;
+}
+
+/* Glitch animation keyframes - creates digital distortion effect */
+@keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, 2px); }
+    80% { transform: translate(-2px, -2px); }
+}
+
+/* Responsive design for mobile devices */
+@media (max-width: 768px) {
+    .hacker-brand {
+        font-size: 1.8rem; /* Smaller brand text on mobile */
+    }
+    
+    .social-hacker {
+        flex-wrap: wrap; /* Allow icons to wrap on small screens */
+    }
+    
+    .social-hacker-icon {
+        width: 45px; /* Smaller icons on mobile */
+        height: 45px;
+    }
+}
